@@ -1,0 +1,141 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.0\n"
+"POT-Creation-Date: 2006-01-12 17:35+CET\n"
+"PO-Revision-Date: 2008-09-24 16:16+0200\n"
+"Last-Translator: Logilab\n"
+"Language-Team: French <devel@logilab.fr.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+# schema pot file, generated on 2008-07-28 14:11:16
+#
+# singular and plural forms for each entity type
+msgid "Company"
+msgstr ""
+
+msgid "Company_plural"
+msgstr "Companies"
+
+msgid "Division"
+msgstr ""
+
+msgid "Division_plural"
+msgstr "Divisions"
+
+msgid "Divisions"
+msgstr ""
+
+msgid "New Company"
+msgstr ""
+
+msgid "New Division"
+msgstr ""
+
+msgid "Subsidiaries"
+msgstr ""
+
+msgid "This Company"
+msgstr ""
+
+msgid "This Division"
+msgstr ""
+
+# add related box generated message
+msgid "add Company headquarters PostalAddress subject"
+msgstr "postal address"
+
+msgid "add Company phone PhoneNumber subject"
+msgstr "phone number"
+
+msgid "add Company subsidiary_of Company object"
+msgstr "subsidiary"
+
+msgid "add Company use_email EmailAddress subject"
+msgstr "email address"
+
+msgid "add Division headquarters PostalAddress subject"
+msgstr "postal address"
+
+msgid "add Division is_part_of Company object"
+msgstr "division"
+
+msgid "add Division phone PhoneNumber subject"
+msgstr "phone number"
+
+msgid "add Division use_email EmailAddress subject"
+msgstr "email address"
+
+msgid "add a Company"
+msgstr ""
+
+msgid "add a Division"
+msgstr ""
+
+msgid "address view"
+msgstr ""
+
+msgid "creating Company (Company subsidiary_of Company %(linkto)s)"
+msgstr "creating a subsidiary of %(linkto)s"
+
+msgid "creating Division (Division is_part_of Company %(linkto)s)"
+msgstr "creating a division of %(linkto)s"
+
+msgid "creating EmailAddress (Company %(linkto)s use_email EmailAddress)"
+msgstr "creating email address for %(linkto)s"
+
+msgid "creating EmailAddress (Division %(linkto)s use_email EmailAddress)"
+msgstr "creating email address for %(linkto)s"
+
+msgid "creating PhoneNumber (Company %(linkto)s phone PhoneNumber)"
+msgstr "creating phone number for %(linkto)s"
+
+msgid "creating PhoneNumber (Division %(linkto)s phone PhoneNumber)"
+msgstr "creating phone number for %(linkto)s"
+
+msgid "creating PostalAddress (Company %(linkto)s headquarters PostalAddress)"
+msgstr "creating postal address for %(linkto)s"
+
+msgid "creating PostalAddress (Division %(linkto)s headquarters PostalAddress)"
+msgstr "creating postal address for %(linkto)s"
+
+# subject and object forms for each relation type
+# (no object form for final relation types)
+msgid "headquarters"
+msgstr ""
+
+msgid "headquarters_object"
+msgstr "headquarters of"
+
+msgid "is_part_of"
+msgstr "is part of"
+
+msgid "is_part_of_object"
+msgstr "contains"
+
+msgid "phone"
+msgstr "phone"
+
+msgid "phone_object"
+msgstr "phone of"
+
+msgid "remove this Company"
+msgstr ""
+
+msgid "remove this Division"
+msgstr ""
+
+msgid "rncs"
+msgstr ""
+
+msgid "subsidiary_of"
+msgstr "subsidiary of"
+
+msgid "subsidiary_of_object"
+msgstr "parent company of"
+
+msgid "web"
+msgstr ""
