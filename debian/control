@@ -4,59 +4,16 @@ Priority: optional
 Maintainer: Logilab Packaging Team <contact@logilab.fr>
 Uploaders: Sylvain Thenault <sylvain.thenault@logilab.fr> 
 Build-Depends: debhelper (>= 5.0.37.1), python (>=2.4), python-dev (>=2.4)
-Standards-Version: 3.7.3
+Standards-Version: 3.8.0
 
 
 Package: cubicweb-company
 Architecture: all
-Depends: cubicweb-company-client (= ${source:Version}), cubicweb-company-server (= ${source:Version})
+Conflicts: erudi-company, erudi-company-server, erudi-company-client, erudi-company-comp
+Replaces: erudi-company, erudi-company-server, erudi-company-client, erudi-company-comp
+Depends: cubicweb-common (>= 3.0.0)
 Description: companies and divisions
- CubicWeb is a entities / relations bases knowledge management system
- developed at Logilab.
+ CubicWeb is a semantic web application framework.
  .
- companies and divisions
- .
- This package will install all the components you need to run the
- cubicweb-company application on a single machine. You can also deploy cubicweb by
- running the different process on different computers, in which case
- you need to install the corresponding packages on the different
- hosts.
-
-
-Package: cubicweb-company-server
-Architecture: all
-Depends: python2.4, cubicweb-server (>= 2.48.2), cubicweb-company-comp (= ${source:Version})
-Description: companies and divisions
- CubicWeb is a entities / relations bases knowledge management system
- developed at Logilab.
- .
- companies and divisions
- .
- This package is a virtual package providing necessary package for the
- server part of the cubicweb-company application built on top of CubicWeb.
-
-
-Package: cubicweb-company-client
-Architecture: all
-Depends: python2.4, cubicweb-twisted (>= 2.48.2) | cubicweb-web-frontend, cubicweb-company-comp (= ${source:Version})
-Description: companies and divisions
- CubicWeb is a entities / relations bases knowledge management system
- developed at Logilab.
- .
- companies and divisions
- .
- This package is a virtual package providing necessary package for the
- web client part of the cubicweb-company application built on top of CubicWeb.
-
-
-Package: cubicweb-company-comp
-Architecture: all
-Depends: python2.4
-Description: companies and divisions
- CubicWeb is a entities / relations bases knowledge management system
- developed at Logilab.
- .
- companies and divisions
- .
- This package provides the code of the cubicweb-company application built on top
- of CubicWeb.
+ This package provides entity types for manipulating companies and
+ divisions in cubicweb applications.
