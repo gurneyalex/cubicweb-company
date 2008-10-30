@@ -1,4 +1,4 @@
-from cubicweb.common.schema import format_constraint
+from cubicweb.schema import format_constraint
 
 # template's specific schema
 
