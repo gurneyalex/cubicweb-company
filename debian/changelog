@@ -1,5 +1,6 @@
-cubicweb-company (0.1.1-1) unstable; urgency=low
+cubicweb-company (0.2.0-1) unstable; urgency=low
 
   * initial public release
+  * cubicweb packaging
 
- -- 
+ -- Adrien Di Mascio <adrien.dimascio@logilab.fr>  Wed, 17 Dec 2008 21:03:03 +0100

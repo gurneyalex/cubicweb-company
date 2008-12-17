@@ -11,7 +11,7 @@ Package: cubicweb-company
 Architecture: all
 Conflicts: erudi-company, erudi-company-server, erudi-company-client, erudi-company-comp
 Replaces: erudi-company, erudi-company-server, erudi-company-client, erudi-company-comp
-Depends: cubicweb-common (>= 3.0.0)
+Depends: cubicweb-common (>= 2.99.0)
 Description: companies and divisions
  CubicWeb is a semantic web application framework.
  .
