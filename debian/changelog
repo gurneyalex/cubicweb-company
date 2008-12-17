@@ -1,4 +1,4 @@
-cubicweb-company (0.2.0-1) unstable; urgency=low
+cubicweb-company (0.2.0-1) DISTRIBUTION; urgency=low
 
   * initial public release
   * cubicweb packaging
