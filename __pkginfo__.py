@@ -2,6 +2,7 @@
 """cubicweb-company application packaging information"""
 
 distname = 'cubicweb-company'
+modname = distname.split('-', 1)[1]
 
 numversion = (0, 2, 0)
 version = '.'.join(str(num) for num in numversion)
