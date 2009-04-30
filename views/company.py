@@ -8,16 +8,16 @@ __docformat__ = "restructuredtext en"
 
 from logilab.mtconverter import html_escape
 
-from cubicweb.common.view import EntityView
+from cubicweb.view import EntityView
+from cubicweb.selectors import implements
 from cubicweb.web.views.baseviews import SecondaryView, OneLineView, TextView
-
-from cubicweb.web.views.baseviews import PrimaryView
+from cubicweb.web.views.primary import PrimaryView
 
 
 class CompanyBasePrimaryView(PrimaryView):
     ## Specifc views for Companies and Divisions ###############################
-    id = None 
-    
+    id = None
+
     PRIMARY_TEMPLATE = """<table border="0" width="100%%">
     <tr>
     <td style="width: 75%%;" valign="top">
@@ -35,7 +35,7 @@ class CompanyBasePrimaryView(PrimaryView):
             self._primary_main_info(entity),
             self._primary_main_related(entity),
             ))
-      
+
     def _primary_main_info(self, entity, parent_rql=None):
         """ Main Block in primary view """
         html = [u'<h1>%s</h1>' % html_escape(entity.name)]
@@ -71,13 +71,13 @@ class CompanyBasePrimaryView(PrimaryView):
     def _main_related_div(self, query, label, vid='secondary'):
         """Creates the side box (<div class="mainRelated") based
         on queries
-        
+
         :type query: str
         :param query: the rql query used to compute displayed data
 
         :type label: str
         :param label: the box label
-    
+
         :rtype: str
         :return: the HTML/CSS code for the side box
         """
@@ -95,8 +95,8 @@ class CompanyBasePrimaryView(PrimaryView):
 class CompanyAddressView(EntityView):
     id = 'address_view'
     title = _('address view')
-    accepts = ('Company', 'Division')
-    
+    __select__ = implements('Company', 'Division')
+
     def cell_call(self, row, col, incontext=False):
         """only prints address"""
         entity = self.complete_entity(row, col)
@@ -115,9 +115,9 @@ class CompanyAddressView(EntityView):
 
 class CompanyPrimaryView(CompanyBasePrimaryView):
     id = 'primary'
-    accepts = ('Company','Division')
+    __select__ = implements('Company', 'Division')
 
-    
+
     def _primary_main_info(self, entity):
         """ Main Block in primary view """
         parent_rql = "Any S, N ORDERBY N WHERE S1 eid %s, S is Company, " \
@@ -141,5 +141,5 @@ class CompanyPrimaryView(CompanyBasePrimaryView):
 
 
 
-    
-    
+
+
