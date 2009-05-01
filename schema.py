@@ -8,10 +8,10 @@ class Division(EntityType):
     web = String(fulltextindexed=True, maxsize=128)
     phone = SubjectRelation('PhoneNumber', cardinality='*?', composite='subject')
     use_email = SubjectRelation('EmailAddress', cardinality='*+', composite='subject')
+    is_part_of = SubjectRelation('Company', cardinality='1*')
 
 class Company(Division):
     rncs = String(fulltextindexed=True, maxsize=32)
-    is_part_of = ObjectRelation('Division', cardinality='1*')
     subsidiary_of = SubjectRelation('Company', cardinality='?*')
 
 
