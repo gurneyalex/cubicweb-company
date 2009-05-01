@@ -16,7 +16,7 @@ class Division(AnyEntity):
 
     def parent(self):
         if self.is_part_of:
-            return parents[0]
+            return self.is_part_of[0]
 
 
 class Company(Division):
