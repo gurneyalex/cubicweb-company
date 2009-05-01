@@ -13,14 +13,17 @@ class Division(AnyEntity):
     """customized class for Division entities"""
     id = 'Division'
     fetch_attrs, fetch_order = fetch_config(['name'])
-    
+
+    def parent(self):
+        if self.is_part_of:
+            return parents[0]
+
 
 class Company(Division):
     """customized class for Company entities"""
     id = 'Company'
 
     def parent(self):
-        parents = self.is_part_of
-        if parents:
-            return parents[0]
+        if self.subsidiary_of:
+            return self.subsidiary_of[0]
 
