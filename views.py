@@ -1,7 +1,7 @@
 """company related views in company package
 
 :organization: Logilab
-:copyright: 2003-2008 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
+:copyright: 2003-2009 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
 :contact: http://www.logilab.fr/ -- mailto:contact@logilab.fr
 """
 __docformat__ = "restructuredtext en"
@@ -10,11 +10,18 @@ from logilab.mtconverter import html_escape
 
 from cubicweb.view import EntityView
 from cubicweb.selectors import implements
-from cubicweb.web.views.baseviews import SecondaryView, OneLineView, TextView
-from cubicweb.web.views.primary import PrimaryView
+from cubicweb.web import uicfg
+from cubicweb.web.views import primary
+
+uicfg.rmode.tag_relation('create', ('*', 'subsidiary_of', 'Company'), 'object')
+uicfg.rmode.tag_relation('create', ('*', 'is_part_of', 'Company'), 'object')
+uicfg.rmode.tag_relation('create', ('Company', 'is_part_of', '*'), 'subject')
+
+uicfg.rinlined.tag_relation(True, ('Division', 'phone', '*'), 'subject')
+uicfg.rinlined.tag_relation(True, ('Division', 'headquarters', '*'), 'subject')
 
 
-class CompanyBasePrimaryView(PrimaryView):
+class CompanyBasePrimaryView(primary.PrimaryView):
     ## Specifc views for Companies and Divisions ###############################
     id = None
 
@@ -115,7 +122,7 @@ class CompanyAddressView(EntityView):
 
 class CompanyPrimaryView(CompanyBasePrimaryView):
     id = 'primary'
-    __select__ = implements('Company', 'Division')
+    __select__ = implements('Company')
 
 
     def _primary_main_info(self, entity):
@@ -140,6 +147,27 @@ class CompanyPrimaryView(CompanyBasePrimaryView):
         return u'\n'.join([self._main_related_div(r,l,v) for r,l,v in queries])
 
 
+class DivisionPrimaryView(CompanyBasePrimaryView):
+    id = 'primary'
+    __select__ = implements('Division')
 
+    PRIMARY_TEMPLATE = """<table border="0" width="100%%">
+    <tr>
+    <td style="width: 75%%;" valign="top">
+    <div class="mainInfo">
+    %s
+    </div>
+    </td>
+    </tr>
+    </table>
+    """
 
+    def cell_call(self, row, col, **kwargs):
+        entity = self.complete_entity(row, col)
+        self.w(self.PRIMARY_TEMPLATE % self._primary_main_info(entity) )
 
+    def _primary_main_info(self, entity):
+        """ Main Block in primary view """
+        parent_rql = "Any S, N where D eid %s, S is Company, " \
+                     "D is_part_of S, S name N" % entity.eid
+        return super(DivisionPrimaryView, self)._primary_main_info(entity, parent_rql)
