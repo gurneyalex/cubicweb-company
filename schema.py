@@ -1,5 +1,3 @@
-from cubicweb.schema import format_constraint
-
 # template's specific schema
 
 class Division(EntityType):
