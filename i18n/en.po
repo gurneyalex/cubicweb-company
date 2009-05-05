@@ -48,6 +48,12 @@ msgstr ""
 msgid "add Company headquarters PostalAddress subject"
 msgstr "postal address"
 
+msgid "add Company is_part_of Company object"
+msgstr ""
+
+msgid "add Company is_part_of Company subject"
+msgstr ""
+
 msgid "add Company phone PhoneNumber subject"
 msgstr "phone number"
 
@@ -76,6 +82,12 @@ msgid "add a Division"
 msgstr ""
 
 msgid "address view"
+msgstr ""
+
+msgid "creating Company (Company %(linkto)s is_part_of Company)"
+msgstr ""
+
+msgid "creating Company (Company is_part_of Company %(linkto)s)"
 msgstr ""
 
 msgid "creating Company (Company subsidiary_of Company %(linkto)s)"

@@ -4,11 +4,11 @@
 distname = 'cubicweb-company'
 modname = distname.split('-', 1)[1]
 
-numversion = (0, 2, 0)
+numversion = (0, 3, 0)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
-copyright = '''Copyright (c) 2008 LOGILAB S.A. (Paris, FRANCE).
+copyright = '''Copyright (c) 2008-2009 LOGILAB S.A. (Paris, FRANCE).
 http://www.logilab.fr/ -- mailto:contact@logilab.fr'''
 
 author = 'Logilab'
@@ -40,14 +40,12 @@ try:
     data_files = [
         # common files
         [THIS_CUBE_DIR, [fname for fname in glob('*.py') if fname != 'setup.py']],
-     
+
         # client (web) files
-        [join(THIS_CUBE_DIR, 'data'),  listdir('data')],
         [join(THIS_CUBE_DIR, 'i18n'),  listdir('i18n')],
-        [join(THIS_CUBE_DIR, 'views'), listdir('views')],
         # Note: here, you'll need to add views' subdirectories if you want
         # them to be included in the debian package
-        
+
         # server files
         [join(THIS_CUBE_DIR, 'migration'), listdir('migration')],
         ]
