@@ -13,12 +13,12 @@ from cubicweb.selectors import implements
 from cubicweb.web import uicfg
 from cubicweb.web.views import primary
 
-uicfg.rmode.tag_relation('create', ('*', 'subsidiary_of', 'Company'), 'object')
-uicfg.rmode.tag_relation('create', ('*', 'is_part_of', 'Company'), 'object')
-uicfg.rmode.tag_relation('create', ('Company', 'is_part_of', '*'), 'subject')
+uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
+uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'is_part_of', 'Company'), True)
+uicfg.actionbox_appearsin_addmenu.tag_subject_of(('Company', 'is_part_of', '*'), True)
 
-uicfg.rinlined.tag_relation(True, ('*', 'phone', '*'), 'subject')
-uicfg.rinlined.tag_relation(True, ('*', 'headquarters', '*'), 'subject')
+uicfg.autoform_is_inlined.tag_subject_of(('*', 'phone', '*'), True)
+uicfg.autoform_is_inlined.tag_subject_of(('*', 'headquarters', '*'), True)
 
 
 class CompanyBasePrimaryView(primary.PrimaryView):
