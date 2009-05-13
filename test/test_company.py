@@ -1,15 +1,15 @@
 """template automatic tests"""
 
-from logilab.common.testlib import TestCase, unittest_main
-
-class DefaultTC(TestCase):
-    def test_something(self):
-        self.skip('this component has no test')
-
-## uncomment the import if you want to activate automatic test for your
-## template
-
+from logilab.common.testlib import unittest_main
 from cubicweb.devtools.testlib import AutomaticWebTest
+
+class AutomaticWebTest(AutomaticWebTest):
+
+    def to_test_etypes(self):
+        return set(('Company', 'Division'))
+
+    def list_startup_views(self):
+        return ()
 
 
 if __name__ == '__main__':
