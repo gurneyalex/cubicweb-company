@@ -23,7 +23,8 @@ from os.path import join, isdir
 from glob import glob
 scripts = glob(join('bin', 'company-*'))
 
-web, ftp = '', ''
+ftp = ''
+web = 'http://www.cubicweb.org/project/%s' % distname
 
 pyversions = ['2.4']
 
