@@ -58,3 +58,9 @@ __use__ = ('addressbook',)
 
 cube_eid = None # <=== FIXME if you need direct bug-subscription
 
+classifiers = [
+           'Environment :: Web Environment',
+           'Framework :: CubicWeb',
+           'Programming Language :: Python',
+           'Programming Language :: JavaScript',
+]
