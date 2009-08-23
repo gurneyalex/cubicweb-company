@@ -141,7 +141,7 @@ msgid "remove this Division"
 msgstr "supprimer cette division"
 
 msgid "rncs"
-msgstr "siret"
+msgstr "siren"
 
 msgid "subsidiary_of"
 msgstr "filiale de"
