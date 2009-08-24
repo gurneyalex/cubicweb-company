@@ -29,7 +29,7 @@ _pvs.tag_object_of(('*', 'is_part_of', 'Company'), 'relations')
 _pvs.tag_subject_of(('*', 'subsidiary_of', 'Company'), 'relations')
 _pvs.tag_object_of(('*', 'subsidiary_of', 'Company'), 'relations')
 
-class CompanyBasePrimaryView(primary.PrimaryView):
+class CompanyDivisionPrimaryView(primary.PrimaryView):
     __select__ = implements('Company','Division')
 
     def render_entity_attributes(self, entity, siderelations=None):

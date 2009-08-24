@@ -18,4 +18,5 @@ class CompanySeeAlso(EntityBoxTemplate):
         box = SideBoxWidget(self.req._('This company on other sites'),
                             'company_sites%i' % entity.eid)
         box.append(BoxLink('http://www.societe.com/cgibin/liste?nom=%s' % rncs, u'Société.com'))
+        box.append(BoxLink('http://www.score3.fr/entreprises.shtml?chaine=%s' % rncs, u'Score3.fr'))
         self.w(box.render())
