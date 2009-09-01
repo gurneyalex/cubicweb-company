@@ -1,8 +1,8 @@
 # pylint: disable-msg=W0622
 """cubicweb-company application packaging information"""
 
-distname = 'cubicweb-company'
-modname = distname.split('-', 1)[1]
+modname = 'company'
+distname = 'cubicweb-%s' % modname
 
 numversion = (0, 3, 0)
 version = '.'.join(str(num) for num in numversion)
@@ -14,22 +14,34 @@ http://www.logilab.fr/ -- mailto:contact@logilab.fr'''
 author = 'Logilab'
 author_email = 'contact@logilab.fr'
 
-short_desc = 'companies and divisions'
-long_desc = '''companies and divisions'''
+short_desc = 'company component for the CubicWeb framework'
+long_desc = '''This CubicWeb component models companies and divisions (divisions are
+parts of companies).
 
-from os import listdir as _listdir
-from os.path import join, isdir
+CubicWeb is a semantic web application framework, see http://www.cubicweb.org
+'''
 
-from glob import glob
-scripts = glob(join('bin', 'company-*'))
-
-web, ftp = '', ''
+web = 'http://www.cubicweb.org/project/%s' % distname
+ftp = ''
 
 pyversions = ['2.4']
 
-#from cubicweb.devtools.pkginfo import get_distutils_datafiles
+__depends_cubes__ = {'addressbook': None}
+__depends__ = {'cubicweb': None}
+for key, value in __depends_cubes__.items():
+    __depends__['cubicweb-'+key] = value
+__use__ = tuple(__depends_cubes__)
+
+# packaging ###
+
+from os import listdir as _listdir
+from os.path import join, isdir
+from glob import glob
+
 CUBES_DIR = join('share', 'cubicweb', 'cubes')
 THIS_CUBE_DIR = join(CUBES_DIR, 'company')
+
+scripts = glob(join('bin', 'company-*'))
 
 def listdir(dirpath):
     return [join(dirpath, fname) for fname in _listdir(dirpath)
@@ -40,20 +52,16 @@ try:
     data_files = [
         # common files
         [THIS_CUBE_DIR, [fname for fname in glob('*.py') if fname != 'setup.py']],
-
         # client (web) files
         [join(THIS_CUBE_DIR, 'i18n'),  listdir('i18n')],
         # Note: here, you'll need to add views' subdirectories if you want
         # them to be included in the debian package
-
         # server files
         [join(THIS_CUBE_DIR, 'migration'), listdir('migration')],
         ]
 except OSError:
     # we are in an installed directory
     pass
-
-__use__ = ('addressbook',)
 
 cube_eid = None # <=== FIXME if you need direct bug-subscription
 

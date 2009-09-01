@@ -1,4 +1,1 @@
-"""cubicweb-company application package
-
-companies and divisions
-"""
+"""cubicweb-company"""
