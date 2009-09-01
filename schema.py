@@ -1,4 +1,6 @@
 # template's specific schema
+from yams.buildobjs import EntityType, SubjectRelation, String
+
 class _Base(EntityType):
     name = String(required=True, fulltextindexed=True, indexed=True, maxsize=128)
     headquarters = SubjectRelation('PostalAddress', cardinality='*?', composite='subject')
@@ -12,5 +14,3 @@ class Division(_Base):
 class Company(_Base):
     rncs = String(fulltextindexed=True, maxsize=32)
     subsidiary_of = SubjectRelation('Company', cardinality='?*')
-
-
