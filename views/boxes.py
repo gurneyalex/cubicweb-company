@@ -21,6 +21,19 @@ def url_score3(entity):
         url += 'entreprises.shtml?chaine=%s' % entity.name
     return url
 
+def url_linkedin(entity):
+    url = 'http://www.linkedin.com/companies/'
+    if entity.name:
+        url += entity.name
+    return url
+
+def url_viadeo(entity):
+    url = 'http://www.viadeo.com/'
+    if entity.name:
+        url += 'recherche/transverse/index.jsp?queryString=%s&search=go' % entity.name
+    return url
+
+
 class CompanySeeAlso(EntityBoxTemplate):
     id = 'company_seealso_box'
     __select__ = EntityBoxTemplate.__select__ & implements('Company') #& score_entity(has_rncs)
@@ -32,4 +45,6 @@ class CompanySeeAlso(EntityBoxTemplate):
                             'company_sites%i' % entity.eid)
         box.append(BoxLink(url_societecom(entity), u'Société.com'))
         box.append(BoxLink(url_score3(entity), u'Score3.fr'))
+        box.append(BoxLink(url_linkedin(entity), u'LinkedIn'))
+        box.append(BoxLink(url_viadeo(entity), u'Viadeo'))
         self.w(box.render())
