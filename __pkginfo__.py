@@ -24,6 +24,13 @@ CubicWeb is a semantic web application framework, see http://www.cubicweb.org
 web = 'http://www.cubicweb.org/project/%s' % distname
 ftp = ''
 
+classifiers = [
+    'Environment :: Web Environment',
+    'Framework :: CubicWeb',
+    'Programming Language :: Python',
+    'Programming Language :: JavaScript',
+    ]
+
 pyversions = ['2.4']
 
 __depends_cubes__ = {'addressbook': None}
@@ -64,4 +71,3 @@ except OSError:
     pass
 
 cube_eid = None # <=== FIXME if you need direct bug-subscription
-
