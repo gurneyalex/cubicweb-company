@@ -10,14 +10,12 @@ from cubicweb.entities import AnyEntity, fetch_config
 from cubicweb.common.mixins import TreeMixIn
 from cubicweb.interfaces import ITree
 
-class Division(TreeMixIn, AnyEntity):
+class Division(AnyEntity):
     """customized class for Division entities"""
     id = 'Division'
-    __implements__ = AnyEntity.__implements__ + (ITree,)
     fetch_attrs, fetch_order = fetch_config(['name'])
-    tree_attribute = 'is_part_of'
 
-class Company(Division):
+class Company(TreeMixIn, Division):
     """customized class for Company entities"""
     id = 'Company'
     __implements__ = AnyEntity.__implements__ + (ITree,)

@@ -15,7 +15,7 @@ from cubicweb.web.views.treeview import TreeViewItemView
 
 class CompanyTree(EntityView):
     id = 'companytree'
-    __select__ = one_line_rset() & implements('Company', 'Division')
+    __select__ = one_line_rset() & implements('Company')
 
     def cell_call(self, row, col):
         entity = self.rset.get_entity(row, col)
@@ -25,7 +25,7 @@ class CompanyTree(EntityView):
 
 class ComponentTreeItemView(TreeViewItemView):
     """keeps track of which branches to open according to current component"""
-    __select__ = (TreeViewItemView.__select__ & implements('Company', 'Division'))
+    __select__ = (TreeViewItemView.__select__ & implements('Company'))
 
     def cell_call(self, row, col, treeid, vid, parentvid='treeview',
                   **morekwargs):
@@ -49,7 +49,7 @@ class ComponentTreeItemView(TreeViewItemView):
 class OneLineSelectableView(EntityView):
     """custom oneline view used by company / division treeview"""
     id = 'oneline-selectable'
-    __select__ = implements('Company', 'Division') & match_kwargs('onscreen')
+    __select__ = implements('Company') & match_kwargs('onscreen')
 
     def cell_call(self, row, col, onscreen):
         entity = self.rset.get_entity(row, col)
