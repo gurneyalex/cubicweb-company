@@ -57,4 +57,11 @@ class OneLineSelectableView(EntityView):
             self.w(u'<span class="currentCompany">%s</span>'
                    % entity.view('textincontext'))
         else:
-            entity.view('incontext', w=self.w)
+            if entity.headquarters:
+                tooltip = entity.headquarters[0].dc_long_title()
+            else:
+                tooltip = u''
+            self.w(u'<a href="%s" title="%s">%s</a>'
+                   % (xml_escape(entity.absolute_url()),
+                      xml_escape(tooltip),
+                      entity.dc_title()))
