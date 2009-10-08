@@ -53,9 +53,8 @@ class OneLineSelectableView(EntityView):
 
     def cell_call(self, row, col, onscreen):
         entity = self.rset.get_entity(row, col)
-        self.w(u'<a href="%s"' % xml_escape(entity.absolute_url()))
         if entity.eid == onscreen:
-            self.w(u' class="selected">')
+            self.w(u'<span class="currentCompany">%s</span>'
+                   % entity.view('textincontext'))
         else:
-            self.w(u'>')
-        self.w(u'%s</a>' % xml_escape(entity.dc_title()))
+            entity.view('incontext', w=self.w)
