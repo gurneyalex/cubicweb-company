@@ -15,44 +15,51 @@ msgstr ""
 #
 # singular and plural forms for each entity type
 msgid "Company"
-msgstr ""
+msgstr "Company"
 
 msgid "Company_plural"
 msgstr "Companies"
 
 msgid "Division"
-msgstr ""
+msgstr "Division"
 
 msgid "Division_plural"
 msgstr "Divisions"
 
-msgid "Divisions"
-msgstr ""
-
 msgid "New Company"
-msgstr ""
+msgstr "New Company"
 
 msgid "New Division"
-msgstr ""
-
-msgid "Subsidiaries"
-msgstr ""
+msgstr "New Division"
 
 msgid "This Company"
-msgstr ""
+msgstr "This Company"
 
 msgid "This Division"
-msgstr ""
+msgstr "This Division"
+
+msgctxt "inlined:Company.phone.subject"
+msgid "This PhoneNumber"
+msgstr "This phone number"
+
+msgctxt "inlined:Division.phone.subject"
+msgid "This PhoneNumber"
+msgstr "This phone number"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "This PostalAddress"
+msgstr "This postal address"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "This PostalAddress"
+msgstr "This postal address"
+
+msgid "This company on other sites"
+msgstr "This company on other sites"
 
 # add related box generated message
 msgid "add Company headquarters PostalAddress subject"
 msgstr "postal address"
-
-msgid "add Company is_part_of Company object"
-msgstr ""
-
-msgid "add Company is_part_of Company subject"
-msgstr ""
 
 msgid "add Company phone PhoneNumber subject"
 msgstr "phone number"
@@ -75,20 +82,30 @@ msgstr "phone number"
 msgid "add Division use_email EmailAddress subject"
 msgstr "email address"
 
-msgid "add a Company"
-msgstr ""
+msgctxt "inlined:Company.phone.subject"
+msgid "add a PhoneNumber"
+msgstr "add a phone number"
 
-msgid "add a Division"
-msgstr ""
+msgctxt "inlined:Division.phone.subject"
+msgid "add a PhoneNumber"
+msgstr "add a phone number"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "add a PostalAddress"
+msgstr "add a postal address"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "add a PostalAddress"
+msgstr "add a postal address"
 
 msgid "address view"
-msgstr ""
+msgstr "address view"
 
-msgid "creating Company (Company %(linkto)s is_part_of Company)"
-msgstr ""
+msgid "boxes_company_seealso_box"
+msgstr "see also"
 
-msgid "creating Company (Company is_part_of Company %(linkto)s)"
-msgstr ""
+msgid "boxes_company_seealso_box_description"
+msgstr "see also"
 
 msgid "creating Company (Company subsidiary_of Company %(linkto)s)"
 msgstr "creating a subsidiary of %(linkto)s"
@@ -117,7 +134,19 @@ msgstr "creating postal address for %(linkto)s"
 # subject and object forms for each relation type
 # (no object form for final relation types)
 msgid "headquarters"
-msgstr ""
+msgstr "headquarters"
+
+msgctxt "Division"
+msgid "headquarters"
+msgstr "headquarters"
+
+msgctxt "Company"
+msgid "headquarters"
+msgstr "headquarters"
+
+msgctxt "PostalAddress"
+msgid "headquarters_object"
+msgstr "headquarters of"
 
 msgid "headquarters_object"
 msgstr "headquarters of"
@@ -125,29 +154,95 @@ msgstr "headquarters of"
 msgid "is_part_of"
 msgstr "is part of"
 
+msgctxt "Division"
+msgid "is_part_of"
+msgstr "is part of"
+
+msgctxt "Company"
 msgid "is_part_of_object"
 msgstr "contains"
+
+msgid "is_part_of_object"
+msgstr "contains"
+
+msgctxt "Division"
+msgid "name"
+msgstr "name"
+
+msgctxt "Company"
+msgid "name"
+msgstr "name"
 
 msgid "phone"
 msgstr "phone"
 
+msgctxt "Division"
+msgid "phone"
+msgstr "phone"
+
+msgctxt "Company"
+msgid "phone"
+msgstr "phone"
+
+msgctxt "PhoneNumber"
 msgid "phone_object"
 msgstr "phone of"
 
-msgid "remove this Company"
-msgstr ""
+msgid "phone_object"
+msgstr "phone of"
 
-msgid "remove this Division"
-msgstr ""
+msgctxt "inlined:Company.phone.subject"
+msgid "remove this PhoneNumber"
+msgstr "remove this phone number"
+
+msgctxt "inlined:Division.phone.subject"
+msgid "remove this PhoneNumber"
+msgstr "remove this phone number"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "remove this PostalAddress"
+msgstr "remove this postal address"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "remove this PostalAddress"
+msgstr "remove this postal address"
 
 msgid "rncs"
-msgstr ""
+msgstr "serial number"
+
+msgctxt "Company"
+msgid "rncs"
+msgstr "serial number"
 
 msgid "subsidiary_of"
 msgstr "subsidiary of"
 
+msgctxt "Company"
+msgid "subsidiary_of"
+msgstr "subsidiary of"
+
+msgctxt "Company"
 msgid "subsidiary_of_object"
 msgstr "parent company of"
 
+msgid "subsidiary_of_object"
+msgstr "parent company of"
+
+msgctxt "Division"
+msgid "use_email"
+msgstr "use email"
+
+msgctxt "Company"
+msgid "use_email"
+msgstr "use email"
+
 msgid "web"
-msgstr ""
+msgstr "web"
+
+msgctxt "Division"
+msgid "web"
+msgstr "web"
+
+msgctxt "Company"
+msgid "web"
+msgstr "web"

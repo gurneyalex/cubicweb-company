@@ -26,17 +26,11 @@ msgstr "Division"
 msgid "Division_plural"
 msgstr "Divisions"
 
-msgid "Divisions"
-msgstr "Divisions"
-
 msgid "New Company"
 msgstr "Nouvelle société"
 
 msgid "New Division"
 msgstr "Nouvelle division"
-
-msgid "Subsidiaries"
-msgstr "Filiales"
 
 msgid "This Company"
 msgstr "Cette société"
@@ -44,15 +38,28 @@ msgstr "Cette société"
 msgid "This Division"
 msgstr "Cette division"
 
+msgctxt "inlined:Company.phone.subject"
+msgid "This PhoneNumber"
+msgstr "Ce numéro de téléphone"
+
+msgctxt "inlined:Division.phone.subject"
+msgid "This PhoneNumber"
+msgstr "Ce numéro de téléphone"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "This PostalAddress"
+msgstr "Cette addresse postale"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "This PostalAddress"
+msgstr "Cette addresse postale"
+
+msgid "This company on other sites"
+msgstr "Cette société sur d'autres sites"
+
 # add related box generated message
 msgid "add Company headquarters PostalAddress subject"
 msgstr "adresse postale"
-
-msgid "add Company is_part_of Company object"
-msgstr ""
-
-msgid "add Company is_part_of Company subject"
-msgstr ""
 
 msgid "add Company phone PhoneNumber subject"
 msgstr "téléphone"
@@ -75,20 +82,30 @@ msgstr "téléphone"
 msgid "add Division use_email EmailAddress subject"
 msgstr "adresse électronique"
 
-msgid "add a Company"
-msgstr "Ajouter une société"
+msgctxt "inlined:Company.phone.subject"
+msgid "add a PhoneNumber"
+msgstr "ajouter un numéro de téléphone"
 
-msgid "add a Division"
-msgstr "Ajouter une division"
+msgctxt "inlined:Division.phone.subject"
+msgid "add a PhoneNumber"
+msgstr "ajouter un numéro de téléphone"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "add a PostalAddress"
+msgstr "ajouter une addresse postale"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "add a PostalAddress"
+msgstr "ajouter une addresse postale"
 
 msgid "address view"
 msgstr "adresse"
 
-msgid "creating Company (Company %(linkto)s is_part_of Company)"
-msgstr ""
+msgid "boxes_company_seealso_box"
+msgstr "voir plus"
 
-msgid "creating Company (Company is_part_of Company %(linkto)s)"
-msgstr ""
+msgid "boxes_company_seealso_box_description"
+msgstr "voir plus"
 
 msgid "creating Company (Company subsidiary_of Company %(linkto)s)"
 msgstr "création d'une filiale de %(linkto)s"
@@ -119,35 +136,131 @@ msgstr "ajout d'une adresse postale pour la division %(linkto)s"
 msgid "headquarters"
 msgstr "a pour adresse"
 
+msgctxt "Division"
+msgid "headquarters"
+msgstr ""
+
+msgctxt "Company"
+msgid "headquarters"
+msgstr ""
+
+msgctxt "PostalAddress"
+msgid "headquarters_object"
+msgstr ""
+
 msgid "headquarters_object"
 msgstr "adresse de"
 
 msgid "is_part_of"
 msgstr "fait partie de"
 
+msgctxt "Division"
+msgid "is_part_of"
+msgstr "fait partie de"
+
+msgctxt "Company"
 msgid "is_part_of_object"
 msgstr "contient"
+
+msgid "is_part_of_object"
+msgstr "contient"
+
+msgctxt "Division"
+msgid "name"
+msgstr "nom"
+
+msgctxt "Company"
+msgid "name"
+msgstr "nom"
 
 msgid "phone"
 msgstr "a pour téléphone"
 
+msgctxt "Division"
+msgid "phone"
+msgstr "a pour téléphone"
+
+msgctxt "Company"
+msgid "phone"
+msgstr "a pour téléphone"
+
+msgctxt "PhoneNumber"
 msgid "phone_object"
 msgstr "téléphone de"
 
-msgid "remove this Company"
-msgstr "supprimer cette société"
+msgid "phone_object"
+msgstr "téléphone de"
 
-msgid "remove this Division"
-msgstr "supprimer cette division"
+msgctxt "inlined:Company.phone.subject"
+msgid "remove this PhoneNumber"
+msgstr "supprimer ce numéro de téléphone"
 
+msgctxt "inlined:Division.phone.subject"
+msgid "remove this PhoneNumber"
+msgstr "supprimer ce numéro de téléphone"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "remove this PostalAddress"
+msgstr "supprimer cette addresse postale"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "remove this PostalAddress"
+msgstr "supprimer cette addresse postale"
+
+msgid "rncs"
+msgstr "siren"
+
+msgctxt "Company"
 msgid "rncs"
 msgstr "siren"
 
 msgid "subsidiary_of"
 msgstr "filiale de"
 
+msgctxt "Company"
+msgid "subsidiary_of"
+msgstr "filiale de"
+
+msgctxt "Company"
 msgid "subsidiary_of_object"
 msgstr "société mère de"
 
+msgid "subsidiary_of_object"
+msgstr "société mère de"
+
+msgctxt "Division"
+msgid "use_email"
+msgstr "utilise l'addresse mail"
+
+msgctxt "Company"
+msgid "use_email"
+msgstr "utilise l'addresse mail"
+
 msgid "web"
 msgstr "site web"
+
+msgctxt "Division"
+msgid "web"
+msgstr "site web"
+
+msgctxt "Company"
+msgid "web"
+msgstr "site web"
+
+#~ msgid "Divisions"
+#~ msgstr "Divisions"
+
+#~ msgid "Subsidiaries"
+#~ msgstr "Filiales"
+
+#~ msgid "add a Company"
+#~ msgstr "Ajouter une société"
+
+#~ msgid "add a Division"
+#~ msgstr "Ajouter une division"
+
+#~ msgid "remove this Company"
+#~ msgstr "supprimer cette société"
+
+#~ msgid "remove this Division"
+#~ msgstr "supprimer cette division"
