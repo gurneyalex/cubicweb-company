@@ -64,4 +64,4 @@ class OneLineSelectableView(EntityView):
             self.w(u'<a href="%s" title="%s">%s</a>'
                    % (xml_escape(entity.absolute_url()),
                       xml_escape(tooltip),
-                      entity.dc_title()))
+                      xml_escape(entity.dc_title())))
