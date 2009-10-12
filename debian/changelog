@@ -1,3 +1,10 @@
+cubicweb-company (0.4.0-1) unstable; urgency=low
+
+  * fix links see also box and  add links to linkedin and  viadeo
+  * rewrite the company view, update the i18n catalog
+
+ -- Graziella TOUTOUNGIS <graziella.toutoungis@logilab.fr>  fri, 09 oct 2009 13:10:50 +0200
+
 cubicweb-company (0.3.0-1) unstable; urgency=low
 
   * new upstream release depending on cubicweb 3.2

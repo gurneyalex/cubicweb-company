@@ -65,6 +65,7 @@ try:
         # them to be included in the debian package
         # server files
         [join(THIS_CUBE_DIR, 'migration'), listdir('migration')],
+	[join(THIS_CUBE_DIR, 'views'), listdir('views')],
         ]
 except OSError:
     # we are in an installed directory
