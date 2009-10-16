@@ -55,10 +55,10 @@ class OneLineSelectableView(EntityView):
         entity = self.rset.get_entity(row, col)
         if entity.eid == onscreen:
             self.w(u'<span class="currentCompany">%s</span>'
-                   % entity.view('textincontext'))
+                   % xml_escape(entity.view('textincontext')))
         else:
             if entity.headquarters:
-                tooltip = entity.headquarters[0].dc_long_title()
+                tooltip = xml_escape(entity.headquarters[0].dc_long_title())
             else:
                 tooltip = u''
             self.w(u'<a href="%s" title="%s">%s</a>'
