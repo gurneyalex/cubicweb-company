@@ -17,8 +17,8 @@ uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'subsidiary_of', 'Company'
 uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'is_part_of', 'Company'), True)
 uicfg.actionbox_appearsin_addmenu.tag_subject_of(('Company', 'is_part_of', '*'), True)
 
-uicfg.autoform_is_inlined.tag_subject_of(('*', 'phone', '*'), True)
-uicfg.autoform_is_inlined.tag_subject_of(('*', 'headquarters', '*'), True)
+uicfg.autoform_section.tag_subject_of(('*', 'phone', '*'), 'inlined', 'attributes')
+uicfg.autoform_section.tag_subject_of(('*', 'headquarters', '*'), 'inlined', 'attributes')
 
 _pvs = uicfg.primaryview_section
 _pvs.tag_subject_of(('Company', 'headquarters', 'PostalAddress'), 'hidden')
@@ -42,13 +42,13 @@ class CompanyDivisionPrimaryView(primary.PrimaryView):
 
 
 class CompanyAddressView(EntityView):
-    id = 'address_view'
+    __regid__ = 'address_view'
     title = _('address view')
     __select__ = implements('Company', 'Division')
 
     def cell_call(self, row, col, incontext=False):
         """only prints address"""
-        entity = self.complete_entity(row, col)
+        entity = self.cw_rset.complete_entity(row, col)
         self.w(u'<div class="vcard">')
         if not incontext:
             self.w(u'<h3><a class="fn org url" href="%s">%s</a></h3>'

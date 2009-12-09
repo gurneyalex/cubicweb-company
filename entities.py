@@ -12,11 +12,11 @@ from cubicweb.interfaces import ITree
 
 class Division(AnyEntity):
     """customized class for Division entities"""
-    id = 'Division'
+    __regid__ = 'Division'
     fetch_attrs, fetch_order = fetch_config(['name'])
 
 class Company(TreeMixIn, Division):
     """customized class for Company entities"""
-    id = 'Company'
+    __regid__ = 'Company'
     __implements__ = AnyEntity.__implements__ + (ITree,)
     tree_attribute = 'subsidiary_of'

@@ -35,13 +35,13 @@ def url_viadeo(entity):
 
 
 class CompanySeeAlso(EntityBoxTemplate):
-    id = 'company_seealso_box'
+    __regid__ = 'company_seealso_box'
     __select__ = EntityBoxTemplate.__select__ & implements('Company') #& score_entity(has_rncs)
     order = 25
 
     def cell_call(self, row, col, **kwargs):
-        entity = self.entity(row, col)
-        box = SideBoxWidget(self.req._('This company on other sites'),
+        entity = self.cw_rset.get_entity(row, col)
+        box = SideBoxWidget(self._cw._('This company on other sites'),
                             'company_sites%i' % entity.eid)
         box.append(BoxLink(url_societecom(entity), u'Société.com'))
         box.append(BoxLink(url_score3(entity), u'Score3.fr'))

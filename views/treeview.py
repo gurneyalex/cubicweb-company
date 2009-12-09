@@ -14,11 +14,11 @@ from cubicweb.view import EntityView
 from cubicweb.web.views.treeview import TreeViewItemView
 
 class CompanyTree(EntityView):
-    id = 'companytree'
+    __regid__ = 'companytree'
     __select__ = one_line_rset() & implements('Company')
 
     def cell_call(self, row, col):
-        entity = self.rset.get_entity(row, col)
+        entity = self.cw_rset.get_entity(row, col)
         root_company = entity.root()
         self.wview('treeview', root_company.as_rset(), subvid='oneline-selectable',
                    onscreen=entity.eid)
@@ -39,7 +39,7 @@ class ComponentTreeItemView(TreeViewItemView):
                                                      **morekwargs)
 
     def _compute_open_branches(self, comp_eid):
-        entity = self.req.execute('Any C WHERE C eid %(c)s',
+        entity = self._cw.execute('Any C WHERE C eid %(c)s',
                                   {'c': comp_eid}, 'c').get_entity(0, 0)
         self._open_branch_memo = set(entity.path())
 
@@ -48,11 +48,11 @@ class ComponentTreeItemView(TreeViewItemView):
 
 class OneLineSelectableView(EntityView):
     """custom oneline view used by company / division treeview"""
-    id = 'oneline-selectable'
+    __regid__ = 'oneline-selectable'
     __select__ = implements('Company') & match_kwargs('onscreen')
 
     def cell_call(self, row, col, onscreen):
-        entity = self.rset.get_entity(row, col)
+        entity = self.cw_rset.get_entity(row, col)
         if entity.eid == onscreen:
             self.w(u'<span class="currentCompany">%s</span>'
                    % xml_escape(entity.view('textincontext')))
