@@ -1,3 +1,9 @@
+cubicweb-company (0.4.1-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Adrien Di Mascio <Adrien.DiMascio@logilab.fr>  Thu, 17 Dec 2009 19:35:07 +0100
+
 cubicweb-company (0.4.0-1) unstable; urgency=low
 
   * fix links see also box and  add links to linkedin and  viadeo
