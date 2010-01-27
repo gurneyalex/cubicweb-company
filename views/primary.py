@@ -1,7 +1,7 @@
 """company related views in company package
 
 :organization: Logilab
-:copyright: 2003-2009 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
+:copyright: 2003-2010 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
 :contact: http://www.logilab.fr/ -- mailto:contact@logilab.fr
 """
 __docformat__ = "restructuredtext en"
@@ -13,38 +13,59 @@ from cubicweb.selectors import implements
 from cubicweb.web import uicfg
 from cubicweb.web.views import primary
 
-uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
-uicfg.actionbox_appearsin_addmenu.tag_object_of(('*', 'is_part_of', 'Company'), True)
-uicfg.actionbox_appearsin_addmenu.tag_subject_of(('Company', 'is_part_of', '*'), True)
+_afs = uicfg.autoform_section
+_afs.tag_subject_of(('*', 'phone', '*'), 'inlined', 'attributes')
+_afs.tag_subject_of(('*', 'headquarters', '*'), 'inlined', 'attributes')
 
-uicfg.autoform_section.tag_subject_of(('*', 'phone', '*'), 'inlined', 'attributes')
-uicfg.autoform_section.tag_subject_of(('*', 'headquarters', '*'), 'inlined', 'attributes')
+_abaa = uicfg.actionbox_appearsin_addmenu
+_abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
+_abaa.tag_object_of(('*', 'is_part_of', 'Company'), True)
+_abaa.tag_subject_of(('Company', 'is_part_of', '*'), True)
 
 _pvs = uicfg.primaryview_section
-_pvs.tag_subject_of(('Company', 'headquarters', 'PostalAddress'), 'hidden')
-_pvs.tag_subject_of(('Company', 'phone', '*'), 'hidden')
-_pvs.tag_subject_of(('Company', 'use_email', '*'), 'hidden')
-_pvs.tag_subject_of(('Company', 'web', '*'), 'hidden')
-_pvs.tag_subject_of(('Division', 'headquarters', 'PostalAddress'), 'hidden')
-_pvs.tag_subject_of(('Division', 'phone', '*'), 'hidden')
-_pvs.tag_subject_of(('Division', 'web', '*'), 'hidden')
-_pvs.tag_subject_of(('Division', 'use_email', '*'), 'hidden')
+_pvs.tag_attribute(('Company', 'rncs'), 'hidden') # siren
+for etype in ('Company', 'Division'):
+    _pvs.tag_attribute((etype, 'name'), 'hidden')
+    _pvs.tag_attribute((etype, 'web'), 'hidden')
+    _pvs.tag_subject_of((etype, 'headquarters', '*'), 'hidden')
+    _pvs.tag_subject_of((etype, 'phone', '*'), 'hidden')
+    _pvs.tag_subject_of((etype, 'use_email', '*'), 'hidden')
 _pvs.tag_subject_of(('*', 'is_part_of', 'Company'), 'relations')
 _pvs.tag_object_of(('*', 'is_part_of', 'Company'), 'relations')
 _pvs.tag_subject_of(('*', 'subsidiary_of', 'Company'), 'relations')
 _pvs.tag_object_of(('*', 'subsidiary_of', 'Company'), 'relations')
 
+
 class CompanyDivisionPrimaryView(primary.PrimaryView):
     __select__ = implements('Company','Division')
 
-    def render_entity_attributes(self, entity, siderelations=None):
-        self.w(entity.view('address_view', incontext=True))
+    attr_table_relations = [('phone', ', '.join),
+                            ('use_email', ', '.join),
+                            ('headquarters', '<hr/>\n'.join),
+                            ('web', None),
+                            ]
+
+    def render_entity_attributes(self, entity):
+        super(CompanyDivisionPrimaryView, self).render_entity_attributes(entity)
+        hascontent = False
+        for rel, join in self.attr_table_relations:
+            if join is None:
+                val = entity.printable_value(rel)
+            else:
+                val = join(e.view('incontext') for e in getattr(entity, rel, ()))
+            if val:
+                if not hascontent:
+                    self.w(u"<table>")
+                    hascontent = True
+                self.field(rel, val, table=True)
+        if hascontent:
+            self.w(u"</table>")
 
 
 class CompanyAddressView(EntityView):
     __regid__ = 'address_view'
-    title = _('address view')
     __select__ = implements('Company', 'Division')
+    title = None
 
     def cell_call(self, row, col, incontext=False):
         """only prints address"""
