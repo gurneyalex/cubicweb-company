@@ -26,33 +26,41 @@ msgstr "Division"
 msgid "Division_plural"
 msgstr "Divisions"
 
+msgctxt "inlined:Company.use_email.subject"
+msgid "EmailAddress"
+msgstr "email address"
+
+msgctxt "inlined:Division.use_email.subject"
+msgid "EmailAddress"
+msgstr "email address"
+
 msgid "New Company"
 msgstr "New Company"
 
 msgid "New Division"
 msgstr "New Division"
 
+msgctxt "inlined:Company.phone.subject"
+msgid "PhoneNumber"
+msgstr "phone number"
+
+msgctxt "inlined:Division.phone.subject"
+msgid "PhoneNumber"
+msgstr "phone number"
+
+msgctxt "inlined:Company.headquarters.subject"
+msgid "PostalAddress"
+msgstr "postal address"
+
+msgctxt "inlined:Division.headquarters.subject"
+msgid "PostalAddress"
+msgstr "postal address"
+
 msgid "This Company"
 msgstr "This Company"
 
 msgid "This Division"
 msgstr "This Division"
-
-msgctxt "inlined:Company.phone.subject"
-msgid "This PhoneNumber"
-msgstr "This phone number"
-
-msgctxt "inlined:Division.phone.subject"
-msgid "This PhoneNumber"
-msgstr "This phone number"
-
-msgctxt "inlined:Company.headquarters.subject"
-msgid "This PostalAddress"
-msgstr "This postal address"
-
-msgctxt "inlined:Division.headquarters.subject"
-msgid "This PostalAddress"
-msgstr "This postal address"
 
 msgid "This company on other sites"
 msgstr "This company on other sites"
@@ -82,6 +90,14 @@ msgstr "phone number"
 msgid "add Division use_email EmailAddress subject"
 msgstr "email address"
 
+msgctxt "inlined:Company.use_email.subject"
+msgid "add a EmailAddress"
+msgstr "add an email address"
+
+msgctxt "inlined:Division.use_email.subject"
+msgid "add a EmailAddress"
+msgstr "add an email address"
+
 msgctxt "inlined:Company.phone.subject"
 msgid "add a PhoneNumber"
 msgstr "add a phone number"
@@ -97,9 +113,6 @@ msgstr "add a postal address"
 msgctxt "inlined:Division.headquarters.subject"
 msgid "add a PostalAddress"
 msgstr "add a postal address"
-
-msgid "address view"
-msgstr "address view"
 
 msgid "boxes_company_seealso_box"
 msgstr "see also"
@@ -191,22 +204,6 @@ msgstr "phone of"
 msgid "phone_object"
 msgstr "phone of"
 
-msgctxt "inlined:Company.phone.subject"
-msgid "remove this PhoneNumber"
-msgstr "remove this phone number"
-
-msgctxt "inlined:Division.phone.subject"
-msgid "remove this PhoneNumber"
-msgstr "remove this phone number"
-
-msgctxt "inlined:Company.headquarters.subject"
-msgid "remove this PostalAddress"
-msgstr "remove this postal address"
-
-msgctxt "inlined:Division.headquarters.subject"
-msgid "remove this PostalAddress"
-msgstr "remove this postal address"
-
 msgid "rncs"
 msgstr "serial number"
 
@@ -237,12 +234,12 @@ msgid "use_email"
 msgstr "use email"
 
 msgid "web"
-msgstr "web"
+msgstr "web site"
 
 msgctxt "Division"
 msgid "web"
-msgstr "web"
+msgstr "web site"
 
 msgctxt "Company"
 msgid "web"
-msgstr "web"
+msgstr "web site"
