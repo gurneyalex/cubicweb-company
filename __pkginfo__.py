@@ -4,11 +4,11 @@
 modname = 'company'
 distname = 'cubicweb-%s' % modname
 
-numversion = (0, 4, 1)
+numversion = (0, 5, 0)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
-copyright = '''Copyright (c) 2008-2009 LOGILAB S.A. (Paris, FRANCE).
+copyright = '''Copyright (c) 2008-2010 LOGILAB S.A. (Paris, FRANCE).
 http://www.logilab.fr/ -- mailto:contact@logilab.fr'''
 
 author = 'Logilab'
@@ -34,7 +34,7 @@ classifiers = [
 pyversions = ['2.4']
 
 __depends_cubes__ = {'addressbook': None}
-__depends__ = {'cubicweb': None}
+__depends__ = {'cubicweb': '>= 3.6.0'}
 for key, value in __depends_cubes__.items():
     __depends__['cubicweb-'+key] = value
 __use__ = tuple(__depends_cubes__)
@@ -65,7 +65,7 @@ try:
         # them to be included in the debian package
         # server files
         [join(THIS_CUBE_DIR, 'migration'), listdir('migration')],
-	[join(THIS_CUBE_DIR, 'views'), listdir('views')],
+        [join(THIS_CUBE_DIR, 'views'), listdir('views')],
         ]
 except OSError:
     # we are in an installed directory
