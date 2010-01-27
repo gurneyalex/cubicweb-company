@@ -14,8 +14,8 @@ from cubicweb.web import uicfg
 from cubicweb.web.views import primary
 
 _afs = uicfg.autoform_section
-_afs.tag_subject_of(('*', 'phone', '*'), 'inlined', 'attributes')
-_afs.tag_subject_of(('*', 'headquarters', '*'), 'inlined', 'attributes')
+_afs.tag_subject_of(('*', 'phone', '*'), 'main', 'inlined')
+_afs.tag_subject_of(('*', 'headquarters', '*'), 'main', 'inlined')
 
 _abaa = uicfg.actionbox_appearsin_addmenu
 _abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
