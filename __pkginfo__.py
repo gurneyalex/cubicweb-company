@@ -15,10 +15,8 @@ author = 'Logilab'
 author_email = 'contact@logilab.fr'
 
 short_desc = 'company component for the CubicWeb framework'
-long_desc = '''This CubicWeb component models companies and divisions (divisions are
-parts of companies).
-
-CubicWeb is a semantic web application framework, see http://www.cubicweb.org
+long_desc = '''\
+This cubes models companies and divisions (divisions are parts of companies).
 '''
 
 web = 'http://www.cubicweb.org/project/%s' % distname
@@ -31,7 +29,7 @@ classifiers = [
     'Programming Language :: JavaScript',
     ]
 
-pyversions = ['2.4']
+pyversions = ['2.5']
 
 __depends_cubes__ = {'addressbook': None}
 __depends__ = {'cubicweb': '>= 3.6.0'}
