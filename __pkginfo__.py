@@ -16,7 +16,7 @@ author_email = 'contact@logilab.fr'
 
 short_desc = 'company component for the CubicWeb framework'
 long_desc = '''\
-This cubes models companies and divisions (divisions are parts of companies).
+This cube models companies and divisions (divisions are parts of companies).
 '''
 
 web = 'http://www.cubicweb.org/project/%s' % distname
