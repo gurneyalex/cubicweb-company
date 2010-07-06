@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from cubicweb.selectors import implements, score_entity
+from cubicweb.selectors import is_instance, score_entity
 from cubicweb.web.box import EntityBoxTemplate
 from cubicweb.web.htmlwidgets import SideBoxWidget, BoxLink
 
@@ -36,7 +36,7 @@ def url_viadeo(entity):
 
 class CompanySeeAlso(EntityBoxTemplate):
     __regid__ = 'company_seealso_box'
-    __select__ = EntityBoxTemplate.__select__ & implements('Company') #& score_entity(has_rncs)
+    __select__ = EntityBoxTemplate.__select__ & is_instance('Company') #& score_entity(has_rncs)
     order = 25
 
     def cell_call(self, row, col, **kwargs):

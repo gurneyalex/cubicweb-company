@@ -7,16 +7,18 @@
 __docformat__ = "restructuredtext en"
 
 from cubicweb.entities import AnyEntity, fetch_config
-from cubicweb.mixins import TreeMixIn
-from cubicweb.interfaces import ITree
+from cubicweb.entities.adapters import ITreeAdapter
+from cubicweb.selectors import is_instance
 
 class Division(AnyEntity):
     """customized class for Division entities"""
     __regid__ = 'Division'
     fetch_attrs, fetch_order = fetch_config(['name'])
 
-class Company(TreeMixIn, Division):
+class Company(Division):
     """customized class for Company entities"""
     __regid__ = 'Company'
-    __implements__ = AnyEntity.__implements__ + (ITree,)
-    tree_attribute = 'subsidiary_of'
+
+class CompanyITreeAdapter(ITreeAdapter):
+    __select__ = is_instance('Company')
+    tree_relation = 'subsidiary_of'

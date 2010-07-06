@@ -21,7 +21,7 @@ classifiers = [
     'Programming Language :: JavaScript',
     ]
 
-__depends__ = {'cubicweb': '>= 3.8.0',
+__depends__ = {'cubicweb': '>= 3.9.0',
                'cubicweb-addressbook': None}
 
 # packaging ###
