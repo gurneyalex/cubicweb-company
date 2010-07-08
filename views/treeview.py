@@ -40,7 +40,7 @@ class ComponentTreeItemView(TreeViewItemView):
 
     def _compute_open_branches(self, comp_eid):
         entity = self._cw.execute('Any C WHERE C eid %(c)s',
-                                  {'c': comp_eid}, 'c').get_entity(0, 0)
+                                  {'c': comp_eid}).get_entity(0, 0)
         self._open_branch_memo = set(entity.cw_adapt_to('ITree').path())
 
     def open_state(self, eeid, treeid):
