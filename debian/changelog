@@ -24,7 +24,7 @@ cubicweb-company (0.3.0-1) unstable; urgency=low
 
  -- Sylvain Thénault <sylvain.thenault@logilab.fr>  Wed, 13 May 2009 11:10:50 +0200
 
-cubicweb-company (0.2.0-1) DISTRIBUTION; urgency=low
+cubicweb-company (0.2.0-1) unstable; urgency=low
 
   * initial public release
   * cubicweb packaging
