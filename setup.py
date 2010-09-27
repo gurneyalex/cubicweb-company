@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# pylint: disable-msg=W0404,W0622,W0704,W0613,W0152
+# pylint: disable=W0404,W0622,W0704,W0613
 # copyright 2003-2010 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
 # contact http://www.logilab.fr/ -- mailto:contact@logilab.fr
 
@@ -142,12 +142,9 @@ def install(**kwargs):
     # install-layout option was introduced in 2.5.3-1~exp1
     elif sys.version_info < (2, 5, 4) and '--install-layout=deb' in sys.argv:
         sys.argv.remove('--install-layout=deb')
-    kwargs['package_dir'] = {modname : '.'}
-    packages = [modname] + get_packages(os.getcwd(), modname)
     if USE_SETUPTOOLS and install_requires:
         kwargs['install_requires'] = install_requires
         kwargs['dependency_links'] = dependency_links
-    kwargs['packages'] = packages
     return setup(name = distname,
                  version = version,
                  license = license,
