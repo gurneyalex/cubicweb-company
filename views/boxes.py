@@ -1,8 +1,31 @@
 # -*- coding: utf-8 -*-
+# copyright 2003-2011 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
+# contact http://www.logilab.fr/ -- mailto:contact@logilab.fr
+#
+# This file is part of CubicWeb.
+#
+# CubicWeb is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Lesser General Public License as published by the Free
+# Software Foundation, either version 2.1 of the License, or (at your option)
+# any later version.
+#
+# CubicWeb is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+# details.
+#
+# You should have received a copy of the GNU Lesser General Public License along
+# with CubicWeb.  If not, see <http://www.gnu.org/licenses/>.
+"""Set of HTML startup views. A startup view is global, e.g. doesn't apply to a
+result set.
+"""
 
-from cubicweb.selectors import implements, score_entity
-from cubicweb.web.box import EntityBoxTemplate
-from cubicweb.web.htmlwidgets import SideBoxWidget, BoxLink
+__docformat__ = "restructuredtext en"
+_ = unicode
+
+
+from cubicweb.selectors import is_instance, score_entity
+from cubicweb.web import component
 
 def has_rncs(entity):
     return entity.rncs is not None
@@ -34,17 +57,15 @@ def url_viadeo(entity):
     return url
 
 
-class CompanySeeAlso(EntityBoxTemplate):
+class CompanySeeAlso(component.EntityCtxComponent):
     __regid__ = 'company_seealso_box'
-    __select__ = EntityBoxTemplate.__select__ & implements('Company') #& score_entity(has_rncs)
+    __select__ = component.EntityCtxComponent.__select__ & is_instance('Company')
+    title = _('This company on other sites')
     order = 25
 
-    def cell_call(self, row, col, **kwargs):
-        entity = self.cw_rset.get_entity(row, col)
-        box = SideBoxWidget(self._cw._('This company on other sites'),
-                            'company_sites%i' % entity.eid)
-        box.append(BoxLink(url_societecom(entity), u'Société.com'))
-        box.append(BoxLink(url_score3(entity), u'Score3.fr'))
-        box.append(BoxLink(url_linkedin(entity), u'LinkedIn'))
-        box.append(BoxLink(url_viadeo(entity), u'Viadeo'))
-        self.w(box.render())
+    def render_body(self, w):
+        self.append(self.link(u'Société.com', url_societecom(self.entity)))
+        self.append(self.link(u'Score3.fr', url_score3(self.entity)))
+        self.append(self.link(u'LinkedIn', url_linkedin(self.entity)))
+        self.append(self.link(u'Viadeo', url_viadeo(self.entity)))
+        self.render_items(w)

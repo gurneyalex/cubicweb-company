@@ -4,7 +4,7 @@
 modname = 'company'
 distname = 'cubicweb-%s' % modname
 
-numversion = (0, 5, 0)
+numversion = (0, 5, 1)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
@@ -20,7 +20,7 @@ classifiers = [
     'Programming Language :: JavaScript',
     ]
 
-__depends__ = {'cubicweb': '>= 3.8.0',
+__depends__ = {'cubicweb': '>= 3.10.0',
                'cubicweb-addressbook': None}
 
 # packaging ###

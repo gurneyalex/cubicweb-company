@@ -9,7 +9,7 @@ __docformat__ = "restructuredtext en"
 from logilab.mtconverter import xml_escape
 
 from cubicweb.view import EntityView
-from cubicweb.selectors import implements
+from cubicweb.selectors import is_instance
 from cubicweb.web import uicfg
 from cubicweb.web.views import primary
 
@@ -37,7 +37,7 @@ _pvs.tag_object_of(('*', 'subsidiary_of', 'Company'), 'relations')
 
 
 class CompanyDivisionPrimaryView(primary.PrimaryView):
-    __select__ = implements('Company','Division')
+    __select__ = is_instance('Company','Division')
 
     attr_table_relations = [('phone', ', '.join),
                             ('use_email', ', '.join),
@@ -64,7 +64,7 @@ class CompanyDivisionPrimaryView(primary.PrimaryView):
 
 class CompanyAddressView(EntityView):
     __regid__ = 'address_view'
-    __select__ = implements('Company', 'Division')
+    __select__ = is_instance('Company', 'Division')
     title = None
 
     def cell_call(self, row, col, incontext=False):
