@@ -5,6 +5,7 @@ msgstr ""
 "PO-Revision-Date: 2008-09-24 16:16+0200\n"
 "Last-Translator: Logilab\n"
 "Language-Team: French <devel@logilab.fr.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -114,12 +115,6 @@ msgctxt "inlined:Division.headquarters.subject"
 msgid "add a PostalAddress"
 msgstr "add a postal address"
 
-msgid "boxes_company_seealso_box"
-msgstr "see also"
-
-msgid "boxes_company_seealso_box_description"
-msgstr "see also"
-
 msgid "creating Company (Company subsidiary_of Company %(linkto)s)"
 msgstr "creating a subsidiary of %(linkto)s"
 
@@ -144,26 +139,32 @@ msgstr "creating postal address for %(linkto)s"
 msgid "creating PostalAddress (Division %(linkto)s headquarters PostalAddress)"
 msgstr "creating postal address for %(linkto)s"
 
+msgid "ctxcomponents_company_seealso_box"
+msgstr "see also"
+
+msgid "ctxcomponents_company_seealso_box_description"
+msgstr "see also"
+
 # subject and object forms for each relation type
 # (no object form for final relation types)
 msgid "headquarters"
 msgstr "headquarters"
 
+msgctxt "Company"
+msgid "headquarters"
+msgstr "headquarters"
+
 msgctxt "Division"
 msgid "headquarters"
 msgstr "headquarters"
 
-msgctxt "Company"
-msgid "headquarters"
-msgstr "headquarters"
+msgid "headquarters_object"
+msgstr "headquarters of"
 
 msgctxt "PostalAddress"
 msgid "headquarters_object"
 msgstr "headquarters of"
 
-msgid "headquarters_object"
-msgstr "headquarters of"
-
 msgid "is_part_of"
 msgstr "is part of"
 
@@ -171,21 +172,25 @@ msgctxt "Division"
 msgid "is_part_of"
 msgstr "is part of"
 
+msgid "is_part_of_object"
+msgstr "contains"
+
 msgctxt "Company"
 msgid "is_part_of_object"
 msgstr "contains"
-
-msgid "is_part_of_object"
-msgstr "contains"
-
-msgctxt "Division"
-msgid "name"
-msgstr "name"
 
 msgctxt "Company"
 msgid "name"
 msgstr "name"
 
+msgctxt "Division"
+msgid "name"
+msgstr "name"
+
+msgid "phone"
+msgstr "phone"
+
+msgctxt "Company"
 msgid "phone"
 msgstr "phone"
 
@@ -193,17 +198,13 @@ msgctxt "Division"
 msgid "phone"
 msgstr "phone"
 
-msgctxt "Company"
-msgid "phone"
-msgstr "phone"
+msgid "phone_object"
+msgstr "phone of"
 
 msgctxt "PhoneNumber"
 msgid "phone_object"
 msgstr "phone of"
 
-msgid "phone_object"
-msgstr "phone of"
-
 msgid "rncs"
 msgstr "serial number"
 
@@ -218,28 +219,28 @@ msgctxt "Company"
 msgid "subsidiary_of"
 msgstr "subsidiary of"
 
+msgid "subsidiary_of_object"
+msgstr "parent company of"
+
 msgctxt "Company"
 msgid "subsidiary_of_object"
 msgstr "parent company of"
 
-msgid "subsidiary_of_object"
-msgstr "parent company of"
-
-msgctxt "Division"
+msgctxt "Company"
 msgid "use_email"
 msgstr "use email"
 
-msgctxt "Company"
+msgctxt "Division"
 msgid "use_email"
 msgstr "use email"
 
 msgid "web"
 msgstr "web site"
 
-msgctxt "Division"
+msgctxt "Company"
 msgid "web"
 msgstr "web site"
 
-msgctxt "Company"
+msgctxt "Division"
 msgid "web"
 msgstr "web site"
