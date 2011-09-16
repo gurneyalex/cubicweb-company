@@ -109,11 +109,11 @@ msgstr "ajouter un n° de téléphone"
 
 msgctxt "inlined:Company.headquarters.subject"
 msgid "add a PostalAddress"
-msgstr "ajouter une addresse postale"
+msgstr "ajouter une adresse postale"
 
 msgctxt "inlined:Division.headquarters.subject"
 msgid "add a PostalAddress"
-msgstr "ajouter une addresse postale"
+msgstr "ajouter une adresse postale"
 
 msgid "creating Company (Company subsidiary_of Company %(linkto)s)"
 msgstr "création d'une filiale de %(linkto)s"
