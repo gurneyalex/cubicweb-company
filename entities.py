@@ -13,7 +13,7 @@ from cubicweb.selectors import is_instance
 class Division(AnyEntity):
     """customized class for Division entities"""
     __regid__ = 'Division'
-    fetch_attrs, fetch_order = fetch_config(['name'])
+    fetch_attrs, cw_fetch_order = fetch_config(['name'])
 
 class Company(Division):
     """customized class for Company entities"""

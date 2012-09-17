@@ -9,7 +9,7 @@ Standards-Version: 3.8.0
 
 Package: cubicweb-company
 Architecture: all
-Depends: cubicweb-common (>= 3.10.0), cubicweb-addressbook
+Depends: cubicweb-common (>= 3.14.0), cubicweb-addressbook
 Description: companies and divisions
  CubicWeb is a semantic web application framework.
  .
