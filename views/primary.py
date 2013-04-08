@@ -1,7 +1,7 @@
 """company related views in company package
 
 :organization: Logilab
-:copyright: 2003-2010 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
+:copyright: 2003-2013 LOGILAB S.A. (Paris, FRANCE), all rights reserved.
 :contact: http://www.logilab.fr/ -- mailto:contact@logilab.fr
 """
 __docformat__ = "restructuredtext en"
@@ -19,25 +19,21 @@ _afs.tag_subject_of(('*', 'headquarters', '*'), 'main', 'inlined')
 
 _abaa = uicfg.actionbox_appearsin_addmenu
 _abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
-_abaa.tag_object_of(('*', 'is_part_of', 'Company'), True)
 _abaa.tag_subject_of(('Company', 'is_part_of', '*'), True)
 
 _pvs = uicfg.primaryview_section
 _pvs.tag_attribute(('Company', 'rncs'), 'hidden') # siren
-for etype in ('Company', 'Division'):
-    _pvs.tag_attribute((etype, 'name'), 'hidden')
-    _pvs.tag_attribute((etype, 'web'), 'hidden')
-    _pvs.tag_subject_of((etype, 'headquarters', '*'), 'hidden')
-    _pvs.tag_subject_of((etype, 'phone', '*'), 'hidden')
-    _pvs.tag_subject_of((etype, 'use_email', '*'), 'hidden')
-_pvs.tag_subject_of(('*', 'is_part_of', 'Company'), 'relations')
-_pvs.tag_object_of(('*', 'is_part_of', 'Company'), 'relations')
-_pvs.tag_subject_of(('*', 'subsidiary_of', 'Company'), 'relations')
-_pvs.tag_object_of(('*', 'subsidiary_of', 'Company'), 'relations')
+_pvs.tag_attribute(('Company', 'name'), 'hidden')
+_pvs.tag_attribute(('Company', 'web'), 'hidden')
+_pvs.tag_subject_of(('Company', 'headquarters', '*'), 'hidden')
+_pvs.tag_subject_of(('Company', 'phone', '*'), 'hidden')
+_pvs.tag_subject_of(('Company', 'use_email', '*'), 'hidden')
+_pvs.tag_subject_of(('*', 'subsidiary_of', '*'), 'relations')
+_pvs.tag_object_of(('*', 'subsidiary_of', '*'), 'relations')
 
 
-class CompanyDivisionPrimaryView(primary.PrimaryView):
-    __select__ = is_instance('Company','Division')
+class CompanyPrimaryView(primary.PrimaryView):
+    __select__ = is_instance('Company')
 
     attr_table_relations = [('phone', ', '.join),
                             ('use_email', ', '.join),
@@ -46,7 +42,7 @@ class CompanyDivisionPrimaryView(primary.PrimaryView):
                             ]
 
     def render_entity_attributes(self, entity):
-        super(CompanyDivisionPrimaryView, self).render_entity_attributes(entity)
+        super(CompanyPrimaryView, self).render_entity_attributes(entity)
         hascontent = False
         for rel, join in self.attr_table_relations:
             if join is None:
@@ -64,7 +60,7 @@ class CompanyDivisionPrimaryView(primary.PrimaryView):
 
 class CompanyAddressView(EntityView):
     __regid__ = 'address_view'
-    __select__ = is_instance('Company', 'Division')
+    __select__ = is_instance('Company')
     title = None
 
     def cell_call(self, row, col, incontext=False):
