@@ -9,7 +9,7 @@ __docformat__ = "restructuredtext en"
 from logilab.mtconverter import xml_escape
 
 from cubicweb.view import EntityView
-from cubicweb.selectors import is_instance
+from cubicweb.predicates import is_instance
 from cubicweb.web import uicfg
 from cubicweb.web.views import primary
 

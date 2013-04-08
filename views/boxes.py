@@ -24,7 +24,7 @@ __docformat__ = "restructuredtext en"
 _ = unicode
 
 
-from cubicweb.selectors import is_instance, score_entity
+from cubicweb.predicates import is_instance, score_entity
 from cubicweb.web import component
 
 def has_rncs(entity):

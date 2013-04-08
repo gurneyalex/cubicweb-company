@@ -9,7 +9,7 @@ _ = unicode
 
 from logilab.mtconverter import xml_escape
 
-from cubicweb.selectors import one_line_rset, is_instance, match_kwargs
+from cubicweb.predicates import one_line_rset, is_instance, match_kwargs
 from cubicweb.view import EntityView
 from cubicweb.web.views.treeview import TreeViewItemView
 
