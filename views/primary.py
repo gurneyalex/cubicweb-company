@@ -19,7 +19,6 @@ _afs.tag_subject_of(('*', 'headquarters', '*'), 'main', 'inlined')
 
 _abaa = uicfg.actionbox_appearsin_addmenu
 _abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
-_abaa.tag_subject_of(('Company', 'is_part_of', '*'), True)
 
 _pvs = uicfg.primaryview_section
 _pvs.tag_attribute(('Company', 'rncs'), 'hidden') # siren
