@@ -24,7 +24,7 @@ install: build
 	dh_clean -k
 	dh_installdirs -i
 	NO_SETUPTOOLS=1 python setup.py -q install --no-compile --prefix=debian/cubicweb-company/usr/
-	rm -rf debian/cubicweb-blog/usr/lib/python*
+	rm -rf debian/cubicweb-company/usr/lib/python*
 
 
 # Build architecture-independent files here.
