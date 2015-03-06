@@ -50,7 +50,7 @@ class CompanyPrimaryView(primary.PrimaryView):
                 val = join(e.view('incontext') for e in getattr(entity, rel, ()))
             if val:
                 if not hascontent:
-                    self.w(u"<table>")
+                    self.w(u'<table class="table table-condensed">')
                     hascontent = True
                 self.field(rel, val, table=True)
         if hascontent:
