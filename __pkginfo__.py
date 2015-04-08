@@ -20,7 +20,7 @@ classifiers = [
     'Programming Language :: JavaScript',
     ]
 
-__depends__ = {'cubicweb': '>= 3.15.0',
+__depends__ = {'cubicweb': '>= 3.20.7',
                'cubicweb-addressbook': None}
 
 # packaging ###
