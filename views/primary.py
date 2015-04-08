@@ -11,7 +11,7 @@ from logilab.mtconverter import xml_escape
 from cubicweb.view import EntityView
 from cubicweb.predicates import is_instance
 from cubicweb.web import uicfg
-from cubicweb.web.views import primary
+from cubicweb.web.views import primary, baseviews
 
 _afs = uicfg.autoform_section
 _afs.tag_subject_of(('*', 'phone', '*'), 'main', 'inlined')
@@ -23,38 +23,27 @@ _abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
 _pvs = uicfg.primaryview_section
 _pvs.tag_attribute(('Company', 'rncs'), 'hidden') # siren
 _pvs.tag_attribute(('Company', 'name'), 'hidden')
-_pvs.tag_attribute(('Company', 'web'), 'hidden')
-_pvs.tag_subject_of(('Company', 'headquarters', '*'), 'hidden')
-_pvs.tag_subject_of(('Company', 'phone', '*'), 'hidden')
-_pvs.tag_subject_of(('Company', 'use_email', '*'), 'hidden')
+_pvs.tag_subject_of(('Company', 'headquarters', '*'), 'attributes')
+_pvs.tag_subject_of(('Company', 'phone', '*'), 'attributes')
+_pvs.tag_subject_of(('Company', 'use_email', '*'), 'attributes')
 _pvs.tag_subject_of(('*', 'subsidiary_of', '*'), 'relations')
 _pvs.tag_object_of(('*', 'subsidiary_of', '*'), 'relations')
+
+_pvdc = uicfg.primaryview_display_ctrl
+_pvdc.tag_attribute(('Company', 'phone'), {'order': 0, 'vid': 'csv'})
+_pvdc.tag_attribute(('Company', 'use_email'), {'order': 1, 'vid': 'csv'})
+_pvdc.tag_attribute(('Company', 'headquarters'),
+                    {'order': 2, 'vid': 'company.hrs'})
+_pvdc.tag_attribute(('Company', 'web'), {'order': 3})
+
+
+class HRSView(baseviews.CSVView):
+    __regid__ = 'company.hrs'
+    separator = u'<hr/>'
 
 
 class CompanyPrimaryView(primary.PrimaryView):
     __select__ = is_instance('Company')
-
-    attr_table_relations = [('phone', ', '.join),
-                            ('use_email', ', '.join),
-                            ('headquarters', '<hr/>\n'.join),
-                            ('web', None),
-                            ]
-
-    def render_entity_attributes(self, entity):
-        super(CompanyPrimaryView, self).render_entity_attributes(entity)
-        hascontent = False
-        for rel, join in self.attr_table_relations:
-            if join is None:
-                val = entity.printable_value(rel)
-            else:
-                val = join(e.view('incontext') for e in getattr(entity, rel, ()))
-            if val:
-                if not hascontent:
-                    self.w(u'<table class="table table-condensed">')
-                    hascontent = True
-                self.field(rel, val, table=True)
-        if hascontent:
-            self.w(u"</table>")
 
 
 class CompanyAddressView(EntityView):
