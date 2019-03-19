@@ -3,6 +3,7 @@
 import unittest
 from cubicweb.devtools.testlib import AutomaticWebTest
 
+
 class AutomaticWebTest(AutomaticWebTest):
 
     def to_test_etypes(self):

@@ -26,14 +26,17 @@ from cubicweb import _
 from cubicweb.predicates import is_instance, score_entity
 from cubicweb.web import component
 
+
 def has_rncs(entity):
     return entity.rncs is not None
+
 
 def url_societecom(entity):
     url = 'http://www.societe.com/'
     if entity.rncs:
         url += 'cgi-bin/recherche?rncs=%s' % entity.rncs
     return url
+
 
 def url_score3(entity):
     url = 'http://www.score3.fr/'
@@ -43,11 +46,13 @@ def url_score3(entity):
         url += 'entreprises.shtml?chaine=%s' % entity.name
     return url
 
+
 def url_linkedin(entity):
     url = 'http://www.linkedin.com/companies/'
     if entity.name:
         url += entity.name
     return url
+
 
 def url_viadeo(entity):
     url = 'http://www.viadeo.com/'

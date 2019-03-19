@@ -23,6 +23,7 @@ from cubicweb.entities import AnyEntity, fetch_config
 from cubicweb.entities.adapters import ITreeAdapter
 from cubicweb.predicates import is_instance
 
+
 class Company(AnyEntity):
     """customized class for Company entities"""
     __regid__ = 'Company'

@@ -26,6 +26,7 @@ from cubicweb.predicates import one_line_rset, is_instance, match_kwargs
 from cubicweb.view import EntityView
 from cubicweb.web.views.treeview import TreeViewItemView
 
+
 class CompanyTree(EntityView):
     __regid__ = 'companytree'
     __select__ = one_line_rset() & is_instance('Company')
@@ -35,6 +36,7 @@ class CompanyTree(EntityView):
         root_company = entity.cw_adapt_to('ITree').root()
         self.wview('treeview', root_company.as_rset(), subvid='oneline-selectable',
                    onscreen=entity.eid)
+
 
 class ComponentTreeItemView(TreeViewItemView):
     """keeps track of which branches to open according to current component"""
@@ -58,6 +60,7 @@ class ComponentTreeItemView(TreeViewItemView):
 
     def open_state(self, eeid, treeid):
         return eeid in self._open_branch_memo
+
 
 class OneLineSelectableView(EntityView):
     """custom oneline view used by company / division treeview"""

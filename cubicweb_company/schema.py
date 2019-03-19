@@ -1,6 +1,7 @@
 # template's specific schema
 from yams.buildobjs import EntityType, SubjectRelation, String
 
+
 class Company(EntityType):
     name = String(required=True, fulltextindexed=True, indexed=True, maxsize=128)
     web = String(fulltextindexed=True, maxsize=128)
