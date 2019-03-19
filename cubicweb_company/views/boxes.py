@@ -21,9 +21,8 @@ result set.
 """
 
 __docformat__ = "restructuredtext en"
-_ = unicode
 
-
+from cubicweb import _
 from cubicweb.predicates import is_instance, score_entity
 from cubicweb.web import component
 

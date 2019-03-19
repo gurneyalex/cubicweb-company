@@ -18,7 +18,7 @@
 """treeviews"""
 
 __docformat__ = "restructuredtext en"
-_ = unicode
+
 
 from logilab.mtconverter import xml_escape
 
