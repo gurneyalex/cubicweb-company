@@ -1,0 +1,3 @@
+pytest
+https://hg.logilab.org/master/cubes/geocoding/archive/default.tar.bz2
+https://hg.logilab.org/master/cubes/addressbook/archive/default.tar.bz2
