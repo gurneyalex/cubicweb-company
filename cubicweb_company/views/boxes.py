@@ -23,7 +23,7 @@ result set.
 __docformat__ = "restructuredtext en"
 
 from cubicweb import _
-from cubicweb.predicates import is_instance, score_entity
+from cubicweb.predicates import is_instance
 from cubicweb.web import component
 
 
