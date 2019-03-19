@@ -21,7 +21,7 @@ _abaa = uicfg.actionbox_appearsin_addmenu
 _abaa.tag_object_of(('*', 'subsidiary_of', 'Company'), True)
 
 _pvs = uicfg.primaryview_section
-_pvs.tag_attribute(('Company', 'rncs'), 'hidden') # siren
+_pvs.tag_attribute(('Company', 'rncs'), 'hidden')  # siren
 _pvs.tag_attribute(('Company', 'name'), 'hidden')
 _pvs.tag_subject_of(('Company', 'headquarters', '*'), 'attributes')
 _pvs.tag_subject_of(('Company', 'phone', '*'), 'attributes')
