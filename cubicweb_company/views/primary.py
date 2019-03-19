@@ -65,5 +65,3 @@ class CompanyAddressView(EntityView):
         self.wview('list', entity.related('phone'), 'null')
         self.wview('list', entity.related('use_email'), 'null')
         self.w(u'</div>')
-
-
