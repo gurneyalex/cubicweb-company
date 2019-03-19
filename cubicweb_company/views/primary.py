@@ -58,12 +58,12 @@ class CompanyAddressView(EntityView):
         if not incontext:
             self.w(u'<h3><a class="fn org url" href="%s">%s</a></h3>'
                    % (xml_escape(entity.absolute_url()), xml_escape(entity.name)))
-        self.wview('incontext',entity.related('headquarters'), 'null')
+        self.wview('incontext', entity.related('headquarters'), 'null')
         if entity.web :
             url = xml_escape(entity.web)
             self.w(u"<a href='%s'>%s</a><br/>" % (url, url))
-        self.wview('list', entity.related('phone'),'null')
-        self.wview('list', entity.related('use_email'),'null')
+        self.wview('list', entity.related('phone'), 'null')
+        self.wview('list', entity.related('use_email'), 'null')
         self.w(u'</div>')
 
 
