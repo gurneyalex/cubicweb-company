@@ -1,3 +1,9 @@
+cubicweb-company (0.8.0-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Philippe Pepiot <philippe.pepiot@logilab.fr>  Thu, 18 Jul 2019 12:32:07 +0200
+
 cubicweb-company (0.7.0-1) unstable; urgency=medium
 
   * New upstream release.

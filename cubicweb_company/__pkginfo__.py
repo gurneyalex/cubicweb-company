@@ -4,7 +4,7 @@
 modname = 'company'
 distname = 'cubicweb-%s' % modname
 
-numversion = (0, 7, 0)
+numversion = (0, 8, 0)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
